@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: Login to A Single Smart Bear Product individual site
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 24.324 s - in Login to A Single Smart Bear Product individual site
