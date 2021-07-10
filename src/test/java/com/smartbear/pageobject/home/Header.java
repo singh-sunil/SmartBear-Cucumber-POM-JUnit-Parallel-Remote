@@ -1,7 +1,8 @@
 package com.smartbear.pageobject.home;
 
+import com.smartbear.pageobject.product.ProductsPage;
+import com.smartbear.pageobject.shopstore.ShoppingStore;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,8 @@ import org.openqa.selenium.support.How;
 
 import com.smartbear.helper.LoggerHelper;
 import com.smartbear.pageobject.PageObject;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Header extends PageObject{
 
@@ -30,7 +33,10 @@ public class Header extends PageObject{
     private WebElement smartBearCart;
 
     @FindBy (how = How.PARTIAL_LINK_TEXT, using = "Login")
-    public WebElement loginLink;
+    private WebElement loginLink;
+
+    @FindBy (xpath = "//a[normalize-space()='VIEW ALL PRODUCTS']")
+    private WebElement viewAllProductsBtn;
 
 
     public Header(WebDriver driver) {
@@ -42,24 +48,42 @@ public class Header extends PageObject{
         return smartBearLogo.isDisplayed();
     }
 
-    public void showProductsDropDownMenu() {
+    public Header showProductsDropDownMenu() {
         productsMenu.click();
+        return this;
     }
 
-    public void showSolutionsDropDownMenu() {
+    public Header showSolutionsDropDownMenu() {
         solutionsMenu.click();
+        return this;
     }
 
-    public void showResourcesDropDownMenu() {
+    public Header showResourcesDropDownMenu() {
         resourcesMenu.click();
+        return this;
     }
 
-    public void visitSmartBearStore() {
+    public ShoppingStore visitSmartBearStore() {
         smartBearCart.click();
+        return new ShoppingStore(driver);
+    }
+
+    public ProductsPage viewAllProducts() throws InterruptedException {
+        final WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(viewAllProductsBtn));
+        wait.until(ExpectedConditions.elementToBeClickable(viewAllProductsBtn));
+        viewAllProductsBtn.click();
+        Thread.sleep(2000);
+        return new ProductsPage(driver);
     }
 
     public void clickOnLogin() {
         loginLink.click();
+    }
+
+    public Home goBackToHome() {
+        smartBearLogo.click();
+        return new Home(driver);
     }
 
 }

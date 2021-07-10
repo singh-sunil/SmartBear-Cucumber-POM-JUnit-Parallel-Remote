@@ -1,0 +1,2 @@
+start startHub.bat
+pause

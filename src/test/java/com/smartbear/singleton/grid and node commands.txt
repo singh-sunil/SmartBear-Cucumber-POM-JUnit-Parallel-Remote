@@ -1,0 +1,3 @@
+java -jar selenium-server-standalone-3.141.59.jar -role hub -hubConfig hubConfig2.json -debug
+
+java -jar selenium-server-standalone-3.141.59.jar -role node -nodeConfig nodeConfig2.json

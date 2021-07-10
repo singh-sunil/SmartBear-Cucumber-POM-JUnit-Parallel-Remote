@@ -14,7 +14,7 @@ public class PropertiesReader {
 
         File file = new File(AUTOMATION_CONFIG_FILEPATH);
         if (!file.exists()) {
-            throw new FileNotFoundException("This file doesnot exist in the path specified " + file.toString());
+            throw new FileNotFoundException("This file does not exist in the path specified " + file.toString());
         } else {
             System.out.println("Welcome, we got into file " + file.toString());
         }
