@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Sunil on 7-July-21.
@@ -26,12 +27,12 @@ public class GridParallelTestBase {
     //Hold all Configuration values in a LinkedList
     //Extra Usage Information: http://www.swtestacademy.com/junit-parametrized-tests/
     @Parameterized.Parameters
-    public static LinkedList<String[]> getEnvironments() throws Exception {
-        LinkedList<String[]> env = new LinkedList<String[]>();
-        env.add(new String[]{"firefox"});
-        env.add(new String[]{"chrome"});
+    public static List<String[]> getBrowsers() throws Exception {
+        List<String[]> browsers = new LinkedList<String[]>();
+        browsers.add(new String[]{"firefox"});
+        browsers.add(new String[]{"chrome"});
         //add more browsers here
-        return env;
+        return browsers;
     }
 
     //Constructor

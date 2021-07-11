@@ -16,9 +16,9 @@ public class GridParallelTest extends GridParallelTestBase {
     public void parallelGridTest() throws Exception {
         //Set Platform Name
         setPlatform(Platform.WIN10);
-        //Go to Amazon.com
+        //Go to yahoo.com
         System.out.println("Test is started for: "+ browserName);
-        driver.get("http://www.yahoo.com");
+        driver.get("https://www.yahoo.com");
         System.out.println("Page title is: " + driver.getTitle());
         System.out.println("Test is finished for: "+ browserName);
     }
